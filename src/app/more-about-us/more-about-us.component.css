@@ -1,0 +1,14 @@
+.more_about_us_text {
+  position: relative;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  min-width: 300px;
+  line-height: 26px;
+  font-size: 20px;
+}
+
+.medium_text {
+  font-weight: 500;
+}

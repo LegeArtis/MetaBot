@@ -1,0 +1,96 @@
+.think_block_swap {
+  position: relative;
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+.left_arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 2%;
+  height: 30px;
+}
+
+.right_arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2%;
+  height: 30px;
+}
+
+.click:hover {
+  cursor: pointer;
+}
+
+.think_block {
+  left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 80%;
+  min-width: 300px;
+  padding: 40px 0 20px 0;
+}
+
+.think_block_text {
+  min-width: 300px;
+  max-width: 750px;
+  width: 80%;
+}
+
+.think_block_text p:nth-child(1) {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 200;
+  margin-bottom: 30px;
+}
+
+.think_block_text p:nth-child(2) {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.think_block_text p:nth-child(3) {
+  font-size: 16px;
+  font-weight: 100;
+}
+
+.think_block_img {
+  width: 200px;
+  height: 200px;
+}
+
+.button {
+  position: relative;
+  margin-top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 50px;
+  width: 250px;
+}
+
+.target_counter {
+  width: 100px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 5%;
+}
+
+.target_counter_element {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #242529;
+  margin: 0 12px;
+}
+
+.target_counter_element_current {
+  background-color: #F5A232;
+}

@@ -1,0 +1,25 @@
+<div class="block">
+  <div class="block_title">
+    <p>Наша команда</p>
+  </div>
+  <div class="our_team_quotation_list">
+    <div *ngFor="let item of currentList" class="our_team_quotation_block">
+      <img class="rounded_img our_team_quotation_img" [src]="item.imgUrl" alt="Photo">
+      <div class="our_team_quotation_mobile_block" *ngIf="isMobile">
+        <p class="our_team_quotation_name our_team_quotation_mobile_p">{{item.name}}</p>
+        <p class="our_team_quotation_position our_team_quotation_mobile_p">{{item.position}}</p>
+      </div>
+      <div class="our_team_quotation">
+        <img class="our_team_quotation_angle_left" src="../../assets/images/our-team/left_eadge.png" alt="angle">
+        <p *ngIf="!isMobile" class="our_team_quotation_name">{{item.name}}</p>
+        <p *ngIf="!isMobile" class="our_team_quotation_position">{{item.position}}</p>
+        <p class="our_team_quotation_text">{{item.text}}</p>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="listOfTeam.length > 3" (click)="toggleMore()" class="block_center our_team_quotation_more_block">
+    <p class="text_center our_team_quotation_more_text">Посмотреть всех</p>
+    <img class="our_team_quotation_more_img" src="../../assets/images/our-team/icon_arrowright.svg.png" alt=">">
+  </div>
+
+</div>

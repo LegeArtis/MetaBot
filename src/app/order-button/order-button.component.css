@@ -1,0 +1,41 @@
+.order_button_btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 68px;
+  border: none;
+  border-radius: 34px;
+  background-color: #F5A232;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+  color: #FFFFFF;
+  outline: none;
+}
+
+@media screen and (max-width: 360px){
+  .order_button_btn {
+    width: 270px;
+  }
+}
+
+.order_button_orange:hover {
+  background-color: #333333;
+  color: #F5A232;
+  cursor: pointer;
+}
+
+.order_button_orange {
+  background-color: #F5A232;
+}
+
+.order_button_blue {
+  background-color: #146ABB;
+}
+
+.order_button_blue:hover {
+  color: #F5A232;
+  cursor: pointer;
+}

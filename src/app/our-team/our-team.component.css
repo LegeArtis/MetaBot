@@ -1,0 +1,114 @@
+.our_team_quotation_block {
+  position: relative;
+  left: 50%;
+  width: 90%;
+  transform: translateX(-50%);
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.our_team_quotation_img {
+  width: 200px;
+  height: 200px;
+}
+
+.our_team_quotation {
+  position: relative;
+  margin-left: 25px;
+  background-color: #EBEBEB;
+  min-width: 300px;
+  width: 60%;
+  border-radius: 10px;
+  margin-top: 35px;
+  box-sizing: border-box;
+  padding: 0 15px;
+}
+.our_team_quotation_name {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.our_team_quotation_text {
+  font-size: 16px;
+}
+
+.our_team_quotation_position {
+  font-size: 14px;
+  color: #666666;
+}
+
+.our_team_quotation_angle_left{
+  position: absolute;
+  right: 0;
+  transform: translateX(100%) rotateY(180deg);
+  top: 30%;
+}
+
+.our_team_quotation_list div:nth-child(odd) {
+  flex-direction: row;
+}
+
+.our_team_quotation_list div:nth-child(odd) div:nth-child(2) img:nth-child(1) {
+  left: 0;
+  transform: translateX(-100%);
+  top: 30%;
+}
+
+.our_team_quotation_more_text {
+  width: 250px;
+  font-size: 30px;
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.our_team_quotation_more_block {
+  margin-top: 25px;
+  position: relative;
+  width: 280px;
+}
+
+.our_team_quotation_more_block:hover {
+  cursor: pointer;
+}
+
+.our_team_quotation_more_img {
+  width: 10px;
+  height: 20px;
+}
+
+.our_team_quotation_mobile_block {
+  align-self: center;
+}
+
+.our_team_quotation_mobile_p {
+  position: relative;
+  height: 25px;
+}
+
+@media screen and (max-width: 768px){
+  .our_team_quotation_angle_left {
+    left: 30%;
+    transform: translateY(-100%) rotate(180deg);
+    top: 0;
+  }
+
+  .our_team_quotation_list div:nth-child(even) div:nth-child(3) img:nth-child(1) {
+    top: 0;
+    transform: translateY(-100%) rotateX(180deg);
+    left: 50%;
+  }
+
+  .our_team_quotation {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 460px){
+  .our_team_quotation_img {
+    width: 100px;
+    height: 100px;
+  }
+}
