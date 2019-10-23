@@ -10,7 +10,7 @@
         <p class="our_team_quotation_position our_team_quotation_mobile_p">{{item.position}}</p>
       </div>
       <div class="our_team_quotation">
-        <img class="our_team_quotation_angle_left" src="../../assets/images/our-team/left_eadge.png" alt="angle">
+        <img class="our_team_quotation_angle_left" src="assets/images/our-team/left_eadge.png" alt="angle">
         <p *ngIf="!isMobile" class="our_team_quotation_name">{{item.name}}</p>
         <p *ngIf="!isMobile" class="our_team_quotation_position">{{item.position}}</p>
         <p class="our_team_quotation_text">{{item.text}}</p>
@@ -19,7 +19,7 @@
   </div>
   <div *ngIf="listOfTeam.length > 3" (click)="toggleMore()" class="block_center our_team_quotation_more_block">
     <p class="text_center our_team_quotation_more_text">Посмотреть всех</p>
-    <img class="our_team_quotation_more_img" src="../../assets/images/our-team/icon_arrowright.svg.png" alt=">">
+    <img [className]="currentList.length > 3 ? 'our_team_quotation_more_img our_team_quotation_more_img_up' : 'our_team_quotation_more_img' " src="assets/images/client-think/right.svg" alt=">">
   </div>
 
 </div>

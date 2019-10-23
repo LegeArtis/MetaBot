@@ -1,0 +1,23 @@
+<div class="block">
+  <div class="block_title">
+    <p class="">Нам доверяют</p>
+  </div>
+
+  <div *ngIf="isMobile" class="certificates_block_mobile">
+    <div class="certificates_block_mobile_img_block">
+      <img (click)="prevImg()" class="left_arrow click" src="assets/images/client-think/left.svg" alt="<">
+      <img class="certificates_block_mobile_img_block_element" [src]="listOfTrust[current]" alt="img">
+      <img (click)="nextImg()" class="right_arrow click" src="assets/images/client-think/right.svg" alt=">">
+    </div>
+
+    <div class="certificates_block_indicator">
+      <div *ngFor="let item of listOfTrust"
+           [className]="item === listOfTrust[current] ? 'certificates_block_indicator_element orange' : 'certificates_block_indicator_element'">
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!isMobile" class="trust_us_list_block">
+    <img class="trust_us_list_block_element" *ngFor="let item of listOfTrust" [src]="item" alt="img">
+  </div>
+</div>

@@ -7,14 +7,14 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 })
 export class FirstPageComponent implements OnInit {
   public listImgDesktop = [
-    '../../assets/images/first-screen/Banner1Desktop.png',
-    '../../assets/images/first-screen/Banner2_Desktop.png',
-    '../../assets/images/first-screen/Banner3_Desktop.png'
+    'assets/images/first-screen/Desktop1.png',
+    'assets/images/first-screen/Desktop2.png',
+    'assets/images/first-screen/Desktop3.png'
   ];
   public listImgTablet = [
-    '../../assets/images/first-screen/Banner1_Tablet.png',
-    '../../assets/images/first-screen/Banner2_Tablet.png',
-    '../../assets/images/first-screen/Banner3_Tablet.png'
+    'assets/images/first-screen/Tablet1.png',
+    'assets/images/first-screen/Tablet2.png',
+    'assets/images/first-screen/Tablet3.png'
   ];
   public current = 0;
   public change = true;
@@ -28,7 +28,7 @@ export class FirstPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 768 || window.innerWidth < window.innerHeight) {
       this.isMobile = true;
     }
     setInterval(() => {

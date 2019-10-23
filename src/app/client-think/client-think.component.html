@@ -1,9 +1,9 @@
-<div class="block">
+<div id="reviews" class="block">
   <div class="block_title">
     <p class="">А вот что думают клиенты о Метабот</p>
   </div>
   <div class="think_block_swap">
-    <img (click)="prevComment()" class="left_arrow click" src="../../assets/images/client-think/left_arrow.png" alt="<">
+    <img (click)="prevComment()" class="left_arrow click" src="assets/images/client-think/left.svg" alt="<">
     <div class="think_block">
       <img class="think_block_img" [src]="imgSrc" alt="photo">
       <div class="think_block_text">
@@ -12,7 +12,7 @@
         <p>{{subs}}</p>
       </div>
     </div>
-    <img (click)="nextComment()" class="right_arrow click" src="../../assets/images/client-think/right_arrow.png" alt=">">
+    <img (click)="nextComment()" class="right_arrow click" src="assets/images/client-think/right.svg" alt=">">
     <div class="target_counter">
       <div [className]="item.name === commitArray[current].name ? 'target_counter_element target_counter_element_current' : 'target_counter_element'" *ngFor="let item of commitArray"></div>
     </div>

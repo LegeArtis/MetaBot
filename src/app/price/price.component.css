@@ -9,7 +9,6 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin-top: 5vw;
   margin-bottom: 40px;
 }
 
@@ -32,6 +31,10 @@ a {
 .price_element_header {
   font-size: 26px;
   font-weight: bold;
+}
+
+.price_link {
+  font-size: 24px;
 }
 
 .price_element_price {
@@ -57,6 +60,7 @@ a {
 }
 
 .bordered_block_5_text_30{
+  font-weight: 500;
   font-size: 30px;
   line-height: 40px;
   width: 85%;

@@ -1,18 +1,18 @@
-<div class="first_page_block">
-  <p class="first_page_block_offer">
+<div id="top" class="first_page_block">
+  <p [className]="!isMobile ? 'first_page_block_offer' : 'first_page_block_offer_mobile'">
     Подключим правильного чат-бота к вашему бизнесу за неделю!
   </p>
   <img *ngIf="isMobile" class="first_page_block_tablet_img" [src]="listImgTablet[current]" alt="Tablet_img">
   <div *ngIf="!isMobile" class="first_page_block_banners">
-    <img class="first_page_block_banners_left_arrow" (click)="prevImg()" src="../../assets/images/first-screen/left_arrow.png" alt="left_arrow">
+    <img class="first_page_block_banners_left_arrow" (click)="prevImg()" src="assets/images/first-screen/left_arrow.png" alt="left_arrow">
     <img class="first_page_block_banners_banner" [src]="listImgDesktop[current]" alt="banner">
-    <img class="first_page_block_banners_right_arrow" (click)="nextImg()" src="../../assets/images/first-screen/arrow.png" alt="right_arrow">
+    <img class="first_page_block_banners_right_arrow" (click)="nextImg()" src="assets/images/first-screen/arrow.png" alt="right_arrow">
     <div class="first_page_block_banners_indicator_block">
       <div *ngFor="let item of listImgDesktop"
-           [className]="item === listImgDesktop[current] ? 'first_page_block_banners_indicator orange arrow_click' : 'first_page_block_banners_indicator arrow_click'"></div>
+           [className]="item === listImgDesktop[current] ? 'first_page_block_banners_indicator orange' : 'first_page_block_banners_indicator'"></div>
     </div>
   </div>
-  <div class="button">
+  <div [className]="!isMobile ? 'button' : 'button_mobile'">
     <app-order-button (click)="callbackFormMethod()" (onChanged)="callbackFormMethod()" [blue]="false"></app-order-button>
   </div>
 </div>

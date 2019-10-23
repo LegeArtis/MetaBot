@@ -1,0 +1,104 @@
+.certificates_img_block {
+  position: relative;
+  max-width: 22%;
+  height: auto;
+}
+
+.certificates_block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 25px;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.certificates_img {
+  height: 300px;
+  max-width: 100%;
+}
+
+.certificates_img_block_gray {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.certificates_img_block_gray:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: url('../../assets/images/certificates/icon_plus_white.svg'), zoom-in;
+}
+
+.certificates_block_zoom {
+  overflow: scroll;
+  z-index: 8;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.certificates_block_zoom_img {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 90%;
+  width: auto;
+  cursor: url('../../assets/images/certificates/icon_plus.svg'), zoom-in;
+}
+
+.certificates_block_zoom_img_large {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 200%;
+  width: auto;
+  cursor: url('../../assets/images/certificates/icon_minus.svg'), zoom-out;
+}
+
+.certificates_block_mobile {
+  position: relative;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.certificates_block_mobile_img_block {
+  position: relative;
+  width: 100%;
+}
+
+.certificates_block_mobile_img_block_element {
+  position: relative;
+  left: 15%;
+  width: 70%;
+  height: auto;
+}
+
+.certificates_block_indicator {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 25px;
+  width: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.certificates_block_indicator_element {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #666666;
+}
+
+.orange {
+  background-color: #F5A232;
+}
+
+

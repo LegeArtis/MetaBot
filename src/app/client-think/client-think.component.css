@@ -4,26 +4,6 @@
   padding-bottom: 50px;
 }
 
-.left_arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 2%;
-  height: 30px;
-}
-
-.right_arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 2%;
-  height: 30px;
-}
-
-.click:hover {
-  cursor: pointer;
-}
-
 .think_block {
   left: 50%;
   transform: translateX(-50%);
@@ -38,13 +18,18 @@
 }
 
 .think_block_text {
-  min-width: 300px;
+  min-width: 250px;
   max-width: 750px;
-  width: 80%;
+  width: 100%;
+  margin-left: 20px;
+}
+
+.think_block_text p {
+  font-weight: lighter;
 }
 
 .think_block_text p:nth-child(1) {
-  font-size: 20px;
+  font-size: 18px;
   line-height: 28px;
   font-weight: 200;
   margin-bottom: 30px;

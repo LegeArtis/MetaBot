@@ -1,5 +1,5 @@
 <app-callback *ngIf="callback" (callbackForm)="toggleCallback()"></app-callback>
-<app-app-header></app-app-header>
+<app-app-header (openMenu)="toggleMenu()"></app-app-header>
 <app-first-page (openCallbackFrom)="toggleCallback()"></app-first-page>
 <app-your-task></app-your-task>
 <app-why-we></app-why-we>
@@ -10,4 +10,8 @@
 <app-what-is-chatbot></app-what-is-chatbot>
 <app-more-about-us></app-more-about-us>
 <app-our-team></app-our-team>
+<app-certificates></app-certificates>
+<app-trust-us></app-trust-us>
+<app-contacts (openCallbackForm)="toggleCallback()"></app-contacts>
+<app-mobile-menu *ngIf="menu" (closeMenu)="toggleMenu()"></app-mobile-menu>
 

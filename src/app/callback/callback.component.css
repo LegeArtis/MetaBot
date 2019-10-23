@@ -60,20 +60,19 @@
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  margin-top: 35px;
+  margin-top: 25px;
   width: 80%;
   min-width: 250px;
   font-size: 18px;
+  padding-left: 15px;
 }
 
 .form_block_input_text_area {
   resize: none;
-  padding-left: 15px;
 }
 
 .form_block_input_input {
   height: 35px;
-  padding-left: 15px;
 }
 
 .form_block_input_button {
@@ -85,7 +84,7 @@
   font-weight: bold;
   color: #FFFFFF;
   border: none;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 @media screen and (max-width: 480px){

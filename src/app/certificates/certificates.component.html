@@ -1,3 +1,27 @@
-<p>
-  certificates works!
-</p>
+<div *ngIf="!mobile" class="block certificates_block">
+  <div (click)="zoomIn(item)" *ngFor="let item of listOfCertificates" class="certificates_img_block">
+    <img class="certificates_img" [src]="item" alt="doc">
+    <div class="certificates_img_block_gray"></div>
+  </div>
+</div>
+
+<div *ngIf="mobile" class="certificates_block_mobile">
+  <div class="certificates_block_mobile_img_block">
+    <img (click)="prevImg()" class="left_arrow click" src="assets/images/client-think/left.svg" alt="<">
+    <img (click)="zoomIn(listOfCertificates[current])" class="certificates_block_mobile_img_block_element" [src]="listOfCertificates[current]" alt="img">
+    <img (click)="nextImg()" class="right_arrow click" src="assets/images/client-think/right.svg" alt=">">
+  </div>
+
+  <div class="certificates_block_indicator">
+    <div *ngFor="let item of listOfCertificates"
+         [className]="item === listOfCertificates[current] ? 'certificates_block_indicator_element orange' : 'certificates_block_indicator_element'">
+    </div>
+  </div>
+</div>
+
+<div class="certificates_block_zoom" *ngIf="isZoomIn">
+  <img (click)="zoomOut()" class="form_block_exit" [src]="mobile ? 'assets/images/certificates/exit_small.svg' : 'assets/images/exit.svg'" src="assets/images/exit.svg" alt="Exit">
+  <img (click)="desktop ? isZoomLarge ? zoomOutLarge() : zoomLarge() : ''"
+       [className]="isZoomLarge ? 'certificates_block_zoom_img_large' : 'certificates_block_zoom_img'"
+       [src]="zoomInUrl" alt="zoom">
+</div>

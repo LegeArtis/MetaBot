@@ -6,7 +6,7 @@
   transform: translateX(-50%);
   width: 80%;
   max-width: 900px;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 .features_block_text {
@@ -17,8 +17,8 @@
 }
 
 .bold {
-  font-weight: lighter;
-  font-size: 30px;
+  font-weight: bold;
+  font-size: 25px;
 }
 
 .features_bot_block {

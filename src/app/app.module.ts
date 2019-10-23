@@ -18,6 +18,9 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { MoreAboutUsComponent } from './more-about-us/more-about-us.component';
 import { OurTeamComponent } from './our-team/our-team.component';
 import { CertificatesComponent } from './certificates/certificates.component';
+import { TrustUsComponent } from './trust-us/trust-us.component';
+import { ContactsComponent } from './contacts/contacts.component';
+import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import { CertificatesComponent } from './certificates/certificates.component';
     MainPageComponent,
     MoreAboutUsComponent,
     OurTeamComponent,
-    CertificatesComponent
+    CertificatesComponent,
+    TrustUsComponent,
+    ContactsComponent,
+    MobileMenuComponent
   ],
   imports: [
     BrowserModule,

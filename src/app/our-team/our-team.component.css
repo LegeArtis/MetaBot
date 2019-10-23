@@ -67,7 +67,7 @@
 .our_team_quotation_more_block {
   margin-top: 25px;
   position: relative;
-  width: 280px;
+  width: 300px;
 }
 
 .our_team_quotation_more_block:hover {
@@ -75,8 +75,12 @@
 }
 
 .our_team_quotation_more_img {
-  width: 10px;
-  height: 20px;
+  height: 30px;
+  position: relative;
+  top: 5px;
+}
+.our_team_quotation_more_img_up {
+  transform: rotate(-90deg);
 }
 
 .our_team_quotation_mobile_block {

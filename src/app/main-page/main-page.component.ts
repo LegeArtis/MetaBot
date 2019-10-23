@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-main-page',
@@ -7,9 +7,14 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 })
 export class MainPageComponent implements OnInit {
   public callback = false;
+  public menu = false;
 
   toggleCallback() {
     this.callback = !this.callback;
+  }
+
+  toggleMenu() {
+    this.menu = !this.menu;
   }
 
   constructor() { }

@@ -1,0 +1,55 @@
+.trust_us_list_block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  position: relative;
+  width: 100%;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.trust_us_list_block_element {
+  height: 100%;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.certificates_block_mobile {
+  position: relative;
+  width: 100%;
+  margin: 30px 0;
+}
+
+.certificates_block_mobile_img_block {
+  position: relative;
+  width: 100%;
+}
+
+.certificates_block_mobile_img_block_element {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+}
+
+.certificates_block_indicator {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 25px;
+  width: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.certificates_block_indicator_element {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #666666;
+}
+
+.orange {
+  background-color: #F5A232;
+}
+

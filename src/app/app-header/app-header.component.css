@@ -5,7 +5,7 @@
   text-align: center;
   background-color: #146ABB;
   z-index: 5;
-  min-height: 100px;
+  height: 70px;
 }
 
 .header_block_menu {
@@ -13,13 +13,19 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  display: grid;
-  grid-template-columns: 1.5fr .5fr 1.2fr 1.1fr .8fr .8fr;
-  width: 60%;
-  max-width: 1064px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 70%;
   font-size: 1.3vw;
   box-sizing: border-box;
-  padding-top: 40px;
+  padding-top: 25px;
+}
+
+.header_block_menu a {
+  margin-left: 15px;
+  color: #FFFFFF;
+  text-decoration: none;
 }
 
 .header_block_menu *:hover {
@@ -29,14 +35,14 @@
 
 .header_block_phone {
   position: absolute;
-  top: 30px;
-  right: 2%;
-  width: 20%;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  width: 15%;
 }
 
 .header_block_phone_icon {
-  max-width: 28px;
-  width: 10%;
+  height: 1.3vw;
   display: inline-block;
 }
 
@@ -44,12 +50,15 @@
   font-size: 1.4vw;
   display: inline-block;
   margin: 0 0 0 10px;
+  text-decoration: none;
+  color: #FFFFFF;
 }
 
 .header_block_logo {
   position: absolute;
-  top: 25px;
-  left: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
   width: 15%;
 }
 
@@ -71,7 +80,8 @@
   .header_block_hamburger {
     display: block;
     position: absolute;
-    top: 35px;
+    top: 50%;
+    transform: translateY(-50%);
     left: 30px;
     width: 30px;
     height: 20px;

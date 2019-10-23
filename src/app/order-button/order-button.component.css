@@ -15,9 +15,11 @@
   outline: none;
 }
 
-@media screen and (max-width: 360px){
+@media screen and (max-width: 460px){
   .order_button_btn {
-    width: 270px;
+    width: 200px;
+    height: 47px;
+    font-size: 16px;
   }
 }
 
