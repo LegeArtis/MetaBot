@@ -1,0 +1,15 @@
+<div class="edit_block">
+  <h1 (click)="titleClick()" class="clicked_title">Список группы "{{config.target}}"</h1>
+  <ul *ngIf="isOpen" class="edit_block_ul">
+      <li class="edit_block_li" *ngFor="let item of itemList">
+        <p>{{item.name}}</p>
+        <p>{{item.position}}</p>
+        <img (click)="setCurrentItem(item)" class="edit_block_li_delete hover" src="assets/images/delete.svg" alt="X">
+      </li>
+  </ul>
+  <div *ngIf="isDelete" class="edit_block_delete_confirm">
+      <h3 class="edit_block_delete_confirm_title">Вы уверены что хотите удалить {{currentItem.name}}?</h3>
+      <button (click)="delete()" class="edit_block_delete_confirm_agree hover">Да</button>
+      <button (click)="isDelete = false" class="edit_block_delete_confirm_disagree hover">Отмена</button>
+  </div>
+</div>

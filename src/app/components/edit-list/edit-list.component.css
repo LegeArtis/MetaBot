@@ -1,0 +1,94 @@
+.edit_block {
+  position: relative;
+  width: 100%;
+  margin: 50px 0;
+  padding-bottom: 100px;
+  box-sizing: border-box;
+}
+
+.edit_block_ul {
+  list-style: none;
+  margin-top: 25px;
+  padding: 0;
+  width: 100%;
+  position: relative;
+}
+
+.edit_block_li {
+  padding-left: 20px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 50px;
+  font-size: 26px;
+  margin-top: 20px;
+  border: #146ABB 2px solid;
+  border-radius: 10px;
+}
+
+.edit_block_li p {
+  display: inline-block;
+  width: 400px;
+  margin: 12px 0 0 0;
+}
+
+.edit_block_li_delete {
+  position: absolute;
+  right: 20px;
+  top: 8px;
+  height: 34px;
+}
+
+.hover:hover {
+  cursor: pointer;
+}
+
+.edit_block_delete_confirm {
+  position: fixed;
+  width: 600px;
+  height: 250px;
+  background-color: #EBEBEB;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.edit_block_delete_confirm_title {
+  position: relative;
+  top: 50px;
+  font-size: 30px;
+  text-align: center;
+  padding: 0 25px;
+  box-sizing: border-box;
+}
+
+.edit_block_delete_confirm_agree {
+  outline: none;
+  background-color: #F5A232;
+  color: #FFFFFF;
+  width: 180px;
+  height: 45px;
+  font-size: 24px;
+  font-weight: bold;
+  border: none;
+  border-radius: 22px;
+  position: absolute;
+  bottom: 30px;
+  left: 15%;
+}
+
+.edit_block_delete_confirm_disagree {
+  outline: none;
+  background-color: #146ABB;
+  color: #FFFFFF;
+  width: 180px;
+  height: 45px;
+  font-size: 24px;
+  font-weight: bold;
+  border: none;
+  border-radius: 22px;
+  position: absolute;
+  bottom: 30px;
+  right: 15%;
+}

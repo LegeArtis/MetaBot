@@ -6,6 +6,7 @@
   background-color: #146ABB;
   z-index: 5;
   height: 70px;
+  top: 0;
 }
 
 .header_block_menu {

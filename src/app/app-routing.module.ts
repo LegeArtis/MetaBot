@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
-import { CallbackComponent } from './callback/callback.component';
-import {MainPageComponent} from './main-page/main-page.component';
+import { CallbackComponent } from './pages/callback/callback.component';
+import {MainPageComponent} from './pages/main-page/main-page.component';
+import {SecretPageComponent} from './pages/secret-page/secret-page.component';
 
 const routes: Routes = [
   { path: '', component: MainPageComponent},
-  { path: 'callback', component: CallbackComponent}
+  { path: 'callback', component: CallbackComponent},
+  { path: 'secret', component: SecretPageComponent}
 ];
 
 @NgModule({

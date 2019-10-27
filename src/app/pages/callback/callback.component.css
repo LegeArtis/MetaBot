@@ -10,6 +10,8 @@
   z-index: 6;
 }
 
+
+
 .form_block_form {
   position: absolute;
   top: 50px;
@@ -87,9 +89,16 @@
   margin-top: 30px;
 }
 
+.form_block_input_button:hover {
+  cursor: pointer;
+  background-color: #146ABB;
+}
+
 @media screen and (max-width: 480px){
   .form_block_form {
     top: 0;
     max-height: 100%;
   }
 }
+
+

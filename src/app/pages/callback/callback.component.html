@@ -1,0 +1,22 @@
+<div class="form_block">
+  <form [formGroup]="callback" (ngSubmit)="submit()" class="form_block_form">
+    <div class="form_block_logo_block">
+      <img class="form_block_logo" src="assets/images/header/Metabot_Logotype_790%202.png" alt="logo">
+      <img (click)="close()" class="form_block_exit" src="assets/images/exit.svg" alt="Exit">
+    </div>
+    <p class="form_block_title">Закажи Чат-Бот</p>
+    <input class="form_block_input form_block_input_input" type="text" placeholder="Ваше имя" formControlName="name">
+    <p class="error_msg" *ngIf="submitted && check.name.errors">Заполните имя</p>
+    <input class="form_block_input form_block_input_input" type="text" placeholder="Ваш E-mail" formControlName="email">
+    <p class="error_msg" *ngIf="submitted && check.email.errors">Введите корректный email</p>
+    <input class="form_block_input form_block_input_input" type="text" placeholder="Номер телефона" name="phone" formControlName="phone">
+    <p class="error_msg" *ngIf="submitted && check.phone.errors">Укажите ваш телефон </p>
+    <textarea rows="4" class="form_block_input form_block_input_text_area" placeholder="Сообщение" name="message" formControlName="message"></textarea>
+    <p class="error_msg" *ngIf="submitted && check.message.errors">Введите ваше сообщение</p>
+    <button class="form_block_input form_block_input_button" type="submit">ЗАКАЗАТЬ ЧАТ-БОТ</button>
+    <div *ngIf="isSend" class="success_send">
+      <img class="success_send_img" src="assets/images/Icon_check.svg" alt="OK">
+      <p class="success_send_text" >Сообщение отправлено</p>
+    </div>
+  </form>
+</div>

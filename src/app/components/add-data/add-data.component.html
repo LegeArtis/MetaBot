@@ -1,0 +1,16 @@
+<div class="add_block">
+  <h1 (click)="titleClick()" class="clicked_title">{{config.target}}</h1>
+  <form *ngIf="isOpen" class="add_block_form" [formGroup]="formGroup" (ngSubmit)="onSubmit(file)" action="">
+    <input class="add_block_input" type="text" formControlName="name" placeholder="имя">
+    <input class="add_block_input" type="text" formControlName="position" placeholder="должность">
+    <textarea class="add_block_text_area" rows="6" formControlName="comment" placeholder="введите текст"></textarea>
+    <input class="add_block_file" type="file" name="file" (change)="onFileSelect($event)" #file>
+    <input class="add_block_btn" type="submit" value="Опубликовать">
+
+    <div *ngIf="isSend" class="success_send">
+      <img class="success_send_img" src="assets/images/Icon_check.svg" alt="OK">
+      <p class="success_send_text" >Опубликовано</p>
+    </div>
+  </form>
+</div>
+
