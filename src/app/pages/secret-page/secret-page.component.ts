@@ -8,7 +8,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./secret-page.component.css']
 })
 export class SecretPageComponent implements OnInit {
-  public isSignIn = true;
+  public isSignIn = false;
   public pass = null;
   public errorPass = false;
   public isChangePass = false;
