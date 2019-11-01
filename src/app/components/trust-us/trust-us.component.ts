@@ -23,6 +23,10 @@ export class TrustUsComponent implements OnInit {
     }
   }
 
+  onSwipe(e) {
+    const x = Math.abs(e.deltaX) > 40 ? (e.deltaX > 0 ? this.prevImg() : this.nextImg()) : '';
+  }
+
   nextImg() {
     if (this.current < this.listOfTrust.length - 1) {
       ++this.current;

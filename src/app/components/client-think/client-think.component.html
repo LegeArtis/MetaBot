@@ -2,9 +2,9 @@
   <div class="block_title">
     <p class="">А вот что думают клиенты о Метабот</p>
   </div>
-  <div class="think_block_swap">
+  <div  class="think_block_swap">
     <img (click)="prevComment()" class="left_arrow click" src="assets/images/client-think/left.svg" alt="<">
-    <div class="think_block">
+    <div (swipe)="onSwipe($event)" class="think_block">
       <img class="think_block_img" [src]="imgSrc" alt="photo">
       <div class="think_block_text">
         <p>{{text}}</p>

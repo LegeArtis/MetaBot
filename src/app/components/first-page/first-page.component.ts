@@ -23,6 +23,11 @@ export class FirstPageComponent implements OnInit {
 
   constructor() { }
 
+  onSwipe(e) {
+    const x = Math.abs(e.deltaX);
+    x  > 40 ? this.prevImg() : this.nextImg();
+  }
+
   callbackFormMethod() {
     this.openCallbackFrom.emit();
   }
@@ -31,12 +36,6 @@ export class FirstPageComponent implements OnInit {
     if (window.innerWidth <= 768 || window.innerWidth < window.innerHeight) {
       this.isMobile = true;
     }
-    setInterval(() => {
-      if (this.change) {
-        this.nextImg();
-      }
-      this.change = true;
-    }, 5000);
   }
 
   nextImg() {

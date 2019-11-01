@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import {BrowserModule, HAMMER_GESTURE_CONFIG, HammerGestureConfig} from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +25,17 @@ import {HttpClientModule} from '@angular/common/http';
 import { SecretPageComponent } from './pages/secret-page/secret-page.component';
 import { AddDataComponent } from './components/add-data/add-data.component';
 import { EditListComponent } from './components/edit-list/edit-list.component';
+import * as Hammer from 'hammerjs';
+
+export class MyHammerConfig extends HammerGestureConfig {
+  overrides = <any> {
+    swipe: { direction: Hammer.DIRECTION_ALL },
+  };
+
+  options = {
+    touchAction: 'pan-y'
+  };
+}
 
 @NgModule({
   declarations: [
@@ -59,6 +70,10 @@ import { EditListComponent } from './components/edit-list/edit-list.component';
     ReactiveFormsModule
   ],
   providers: [
+    {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: MyHammerConfig
+    }
   ],
   bootstrap: [AppComponent]
 })

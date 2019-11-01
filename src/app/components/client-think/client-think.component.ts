@@ -31,6 +31,10 @@ export class ClientThinkComponent implements OnInit {
     this.openCallbackForm.emit();
   }
 
+  onSwipe(e) {
+    const x = Math.abs(e.deltaX) > 40 ? (e.deltaX > 0 ? this.prevComment() : this.nextComment()) : '';
+  }
+
   nextComment() {
     this.change = false;
     if (this.current < this.commitArray.length - 1) {

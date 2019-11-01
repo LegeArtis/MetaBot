@@ -86,14 +86,19 @@
   width: 130px;
 }
 
-.first_page_block_tablet_img {
-  display: block;
+.first_page_block_tablet_img_block {
   position: absolute;
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
   max-width: 768px;
+}
+
+.first_page_block_tablet_img {
+  display: block;
+  position: relative;
+  width: 100%;
 }
 
 .button_mobile {
