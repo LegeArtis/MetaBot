@@ -8,7 +8,7 @@
 <div *ngIf="mobile" class="certificates_block_mobile">
   <div class="certificates_block_mobile_img_block">
     <img (click)="prevImg()" class="left_arrow click" src="assets/images/client-think/left.svg" alt="<">
-    <img (click)="zoomIn(listOfCertificates[current])" class="certificates_block_mobile_img_block_element" [src]="listOfCertificates[current]" alt="img">
+    <img (swipe)="onSwipe($event)" (click)="zoomIn(listOfCertificates[current])" class="certificates_block_mobile_img_block_element" [src]="listOfCertificates[current]" alt="img">
     <img (click)="nextImg()" class="right_arrow click" src="assets/images/client-think/right.svg" alt=">">
   </div>
 

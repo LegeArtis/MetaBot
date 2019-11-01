@@ -27,6 +27,11 @@ export class CertificatesComponent implements OnInit {
     }
   }
 
+  onSwipe(e) {
+    const x = Math.abs(e.deltaX);
+    (x  > 40 && e.deltaX > 0) ? this.prevImg() : this.nextImg();
+  }
+
   prevImg() {
     if (this.current === 0) {
       this.current = this.listOfCertificates.length - 1;

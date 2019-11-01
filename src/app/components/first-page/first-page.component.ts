@@ -25,7 +25,7 @@ export class FirstPageComponent implements OnInit {
 
   onSwipe(e) {
     const x = Math.abs(e.deltaX);
-    x  > 40 ? this.prevImg() : this.nextImg();
+    (x  > 40 && e.deltaX > 0) ? this.prevImg() : this.nextImg();
   }
 
   callbackFormMethod() {
