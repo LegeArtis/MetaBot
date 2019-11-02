@@ -27,6 +27,7 @@ import { AddDataComponent } from './components/add-data/add-data.component';
 import { EditListComponent } from './components/edit-list/edit-list.component';
 import * as Hammer from 'hammerjs';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { DemoBotComponent } from './components/demo-bot/demo-bot.component';
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any> {
@@ -62,7 +63,8 @@ export class MyHammerConfig extends HammerGestureConfig {
     MobileMenuComponent,
     SecretPageComponent,
     AddDataComponent,
-    EditListComponent
+    EditListComponent,
+    DemoBotComponent
   ],
   imports: [
     BrowserModule,
