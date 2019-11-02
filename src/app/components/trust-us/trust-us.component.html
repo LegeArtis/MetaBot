@@ -4,10 +4,14 @@
   </div>
 
   <div *ngIf="isMobile" class="certificates_block_mobile">
-    <div class="certificates_block_mobile_img_block">
-      <img (click)="prevImg()" class="left_arrow click" src="assets/images/client-think/left.svg" alt="<">
-      <img (swipe)="onSwipe($event)" class="certificates_block_mobile_img_block_element" [src]="listOfTrust[current]" alt="img">
-      <img (click)="nextImg()" class="right_arrow click" src="assets/images/client-think/right.svg" alt=">">
+    <div class="trust_block_mobile_img_block">
+      <img (click)="prevImg(0)" class="left_arrow click" src="assets/images/client-think/left.svg" alt="<">
+      <div (pan)="onPan($event)" id="img_block_trust" class="img_block_pan">
+        <img id="prevTrust" class="trust_block_mobile_img_block_element_prev" [src]="listOfTrust[listOfTrust.length - 1]" alt="img">
+        <img id="currentTrust" class="trust_block_mobile_img_block_element" [src]="listOfTrust[current]" alt="img">
+        <img id="nextTrust" class="trust_block_mobile_img_block_element_next" [src]="listOfTrust[1]" alt="img">
+      </div>
+      <img (click)="nextImg(0)" class="right_arrow click" src="assets/images/client-think/right.svg" alt=">">
     </div>
 
     <div class="certificates_block_indicator">

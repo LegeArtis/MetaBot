@@ -5,14 +5,43 @@
 }
 
 .think_block {
-  left: 50%;
-  transform: translateX(-50%);
   position: relative;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-around;
+  width: 100%;
+  min-width: 300px;
+  padding: 40px 0 20px 0;
+}
+
+.think_block_next {
+  position: absolute;
+  transform: translateX(100%);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  min-width: 300px;
+  padding: 40px 0 20px 0;
+}
+
+.img_block_client {
+  position: relative;
+  overflow: hidden;
+  left: 10%;
   width: 80%;
+}
+
+.think_block_prev {
+  position: absolute;
+  transform: translateX(-100%);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
   min-width: 300px;
   padding: 40px 0 20px 0;
 }
@@ -61,7 +90,7 @@
 }
 
 .target_counter {
-  width: 100px;
+  width: 150px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);

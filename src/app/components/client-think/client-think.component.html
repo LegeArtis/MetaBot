@@ -3,18 +3,39 @@
     <p class="">А вот что думают клиенты о Метабот</p>
   </div>
   <div  class="think_block_swap">
-    <img (click)="prevComment()" class="left_arrow click" src="assets/images/client-think/left.svg" alt="<">
-    <div (swipe)="onSwipe($event)" class="think_block">
-      <img class="think_block_img" [src]="imgSrc" alt="photo">
-      <div class="think_block_text">
-        <p>{{text}}</p>
-        <p>{{name}}</p>
-        <p>{{subs}}</p>
+    <img (click)="prevImg(0)" class="left_arrow click" src="assets/images/client-think/left.svg" alt="<">
+    <div (pan)="onPan($event)" class="img_block_client" id="img_block_client" >
+      <div id="prevClient" class="think_block_prev">
+        <img class="think_block_img" [src]="commitArray[commitArray.length - 1].url" alt="photo">
+        <div class="think_block_text">
+          <p>{{commitArray[commitArray.length - 1].comment}}</p>
+          <p>{{commitArray[commitArray.length - 1].name}}</p>
+          <p>{{commitArray[commitArray.length - 1].position}}</p>
+        </div>
+      </div>
+
+      <div id="currentClient" class="think_block">
+        <img class="think_block_img" [src]="commitArray[current].url" alt="photo">
+        <div class="think_block_text">
+          <p>{{commitArray[current].comment}}</p>
+          <p>{{commitArray[current].name}}</p>
+          <p>{{commitArray[current].position}}</p>
+        </div>
+      </div>
+
+      <div id="nextClient" class="think_block_next">
+        <img class="think_block_img" [src]="commitArray[1].url" alt="photo">
+        <div class="think_block_text">
+          <p>{{commitArray[1].comment}}</p>
+          <p>{{commitArray[1].name}}</p>
+          <p>{{commitArray[1].position}}</p>
+        </div>
       </div>
     </div>
-    <img (click)="nextComment()" class="right_arrow click" src="assets/images/client-think/right.svg" alt=">">
+
+    <img (click)="nextImg(0)" class="right_arrow click" src="assets/images/client-think/right.svg" alt=">">
     <div class="target_counter">
-      <div [className]="item.name === commitArray[current].name ? 'target_counter_element target_counter_element_current' : 'target_counter_element'" *ngFor="let item of commitArray"></div>
+      <div [className]="item.url === commitArray[current].url ? 'target_counter_element target_counter_element_current' : 'target_counter_element'" *ngFor="let item of commitArray"></div>
     </div>
   </div>
   <div class="button">

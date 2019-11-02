@@ -20,16 +20,36 @@
   margin: 30px 0;
 }
 
-.certificates_block_mobile_img_block {
+.trust_block_mobile_img_block {
   position: relative;
   width: 100%;
 }
 
-.certificates_block_mobile_img_block_element {
+.trust_block_mobile_img_block_element {
   position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 100%;
+  width: 100%;
+}
+
+.trust_block_mobile_img_block_element_prev {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+}
+
+.trust_block_mobile_img_block_element_next {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(100%);
+}
+
+.img_block_pan {
+  position: relative;
+  width: 80%;
+  left: 10%;
+  overflow: hidden;
+  min-height: 100px;
 }
 
 .certificates_block_indicator {

@@ -7,9 +7,13 @@
 
 <div *ngIf="mobile" class="certificates_block_mobile">
   <div class="certificates_block_mobile_img_block">
-    <img (click)="prevImg()" class="left_arrow click" src="assets/images/client-think/left.svg" alt="<">
-    <img (swipe)="onSwipe($event)" (click)="zoomIn(listOfCertificates[current])" class="certificates_block_mobile_img_block_element" [src]="listOfCertificates[current]" alt="img">
-    <img (click)="nextImg()" class="right_arrow click" src="assets/images/client-think/right.svg" alt=">">
+    <img (click)="prevImg(0)" class="left_arrow click" src="assets/images/client-think/left.svg" alt="<">
+    <div (pan)="onPan($event)"  id="img_block_cert" class="img_block">
+      <img id="prevCert" (click)="zoomIn(listOfCertificates[current])" class="certificates_block_mobile_img_block_element_prev" [src]="listOfCertificates[listOfCertificates.length - 1]" alt="img">
+      <img id="currentCert" (click)="zoomIn(listOfCertificates[current])" class="certificates_block_mobile_img_block_element" [src]="listOfCertificates[0]" alt="img">
+      <img id="nextCert" (click)="zoomIn(listOfCertificates[current])" class="certificates_block_mobile_img_block_element_next" [src]="listOfCertificates[1]" alt="img">
+    </div>
+    <img (click)="nextImg(0)" class="right_arrow click" src="assets/images/client-think/right.svg" alt=">">
   </div>
 
   <div class="certificates_block_indicator">

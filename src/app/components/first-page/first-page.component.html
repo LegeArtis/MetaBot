@@ -2,17 +2,25 @@
   <p [className]="!isMobile ? 'first_page_block_offer' : 'first_page_block_offer_mobile'">
     Подключим правильного чат-бота к вашему бизнесу за неделю!
   </p>
-  <div *ngIf="isMobile" class="first_page_block_tablet_img_block">
-    <img (swipe)="onSwipe($event)"  class="first_page_block_tablet_img" [src]="listImgTablet[current]" alt="Tablet_img">
+  <div  *ngIf="isMobile" class="first_page_block_tablet_img_block">
+    <div (pan)="onPan($event)" id="img block">
+      <img id="prev" class="first_page_block_tablet_img_prev" [src]="listImgTablet[2]" alt="Tablet_img">
+      <img id="current" class="first_page_block_tablet_img" [src]="listImgTablet[0]" alt="Tablet_img">
+      <img id="next" class="first_page_block_tablet_img_next" [src]="listImgTablet[1]" alt="Tablet_img">
+    </div>
     <div class="first_page_block_banners_indicator_block">
       <div *ngFor="let item of listImgDesktop"
            [className]="item === listImgDesktop[current] ? 'first_page_block_banners_indicator orange' : 'first_page_block_banners_indicator'"></div>
     </div>
   </div>
   <div *ngIf="!isMobile" class="first_page_block_banners">
-    <img class="first_page_block_banners_left_arrow" (click)="prevImg()" src="assets/images/first-screen/left_arrow.png" alt="left_arrow">
-    <img class="first_page_block_banners_banner" [src]="listImgDesktop[current]" alt="banner">
-    <img class="first_page_block_banners_right_arrow" (click)="nextImg()" src="assets/images/first-screen/arrow.png" alt="right_arrow">
+    <img class="first_page_block_banners_left_arrow" (click)="prevImgDesk()" src="assets/images/first-screen/left_arrow.png" alt="left_arrow">
+    <div id="img_desk_block" class="img_desk_block">
+      <img id="prevDesktop" class="first_page_block_banners_banner_prev" [src]="listImgDesktop[2]" alt="banner">
+      <img id="currentDesktop" class="first_page_block_banners_banner" [src]="listImgDesktop[0]" alt="banner">
+      <img id="nextDesktop" class="first_page_block_banners_banner_next" [src]="listImgDesktop[1]" alt="banner">
+    </div>
+    <img class="first_page_block_banners_right_arrow" (click)="nextImgDesk()" src="assets/images/first-screen/arrow.png" alt="right_arrow">
     <div class="first_page_block_banners_indicator_block">
       <div *ngFor="let item of listImgDesktop"
            [className]="item === listImgDesktop[current] ? 'first_page_block_banners_indicator orange' : 'first_page_block_banners_indicator'"></div>
