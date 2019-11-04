@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'your_server_address'
+  apiUrl: 'https://metabot24.info/api'
 };

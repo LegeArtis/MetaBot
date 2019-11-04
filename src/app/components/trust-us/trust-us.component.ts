@@ -12,7 +12,8 @@ export class TrustUsComponent implements OnInit {
     currentElementId: 'currentTrust',
     prevElementId: 'prevTrust',
     nextElementEd: 'nextTrust',
-    parentElementId: 'img_block_trust'
+    parentElementId: 'img_block_trust',
+    counter: 0
   };
   public listOfTrust = [
     'assets/images/trust-us/Alfa-Bank%201.png',
@@ -99,24 +100,30 @@ export class TrustUsComponent implements OnInit {
 
   onPan(e) {
     const {prevElementId, currentElementId, nextElementEd, pxForSwipe} = this.animationConfig;
-    const x = Math.round(e.deltaX / window.innerWidth * 100) * -1;
-    if ( x >= 0) {
-      const current = document.getElementById(currentElementId);
-      const next = document.getElementById(nextElementEd);
-      current.style.transform = `translateX(-${x}%)`;
-      next.style.transform = `translateX(${100 - x}%)`;
-    } else {
-      const current = document.getElementById(currentElementId);
-      const next = document.getElementById(prevElementId);
-      current.style.transform = `translateX(${-x}%)`;
-      next.style.transform = `translateX(${-100 - x}%)`;
+    if (e['additionalEvent'] && e['additionalEvent'] !== 'pandown' && e['additionalEvent'] !== 'panup') {
+      this.animationConfig.counter++;
     }
-    if (e.isFinal) {
-      if (Math.abs(e.deltaX) > pxForSwipe) {
-        x > 0 ? this.nextImg(x) : this.prevImg(x);
+    if (this.animationConfig.counter > 3) {
+      const x = Math.round(e.deltaX / window.innerWidth * 100) * - 1;
+      if (x >= 0) {
+        const current = document.getElementById(currentElementId);
+        const next = document.getElementById(nextElementEd);
+        current.style.transform = `translateX(-${x}%)`;
+        next.style.transform = `translateX(${100 - x}%)`;
+      } else {
+        const current = document.getElementById(currentElementId);
+        const next = document.getElementById(prevElementId);
+        current.style.transform = `translateX(${-x}%)`;
+        next.style.transform = `translateX(${-100 - x}%)`;
       }
-      if (Math.abs(e.deltaX) < pxForSwipe) {
-        x > 0 ? this.backFromNext(x) : this.backFromPrev(x);
+      if (e.isFinal) {
+        if (Math.abs(e.deltaX) > pxForSwipe) {
+          x > 0 ? this.nextImg(x) : this.prevImg(x);
+        }
+        if (Math.abs(e.deltaX) < pxForSwipe) {
+          x > 0 ? this.backFromNext(x) : this.backFromPrev(x);
+        }
+        this.animationConfig.counter = 0;
       }
     }
   }

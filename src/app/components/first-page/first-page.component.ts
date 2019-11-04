@@ -8,11 +8,12 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 export class FirstPageComponent implements OnInit {
   public animationConfig = {
     animationSpeed: 5,
-    pxForSwipe: 50,
+    pxForSwipe: 100,
     currentElementId: 'current',
     prevElementId: 'prev',
     nextElementEd: 'next',
-    parentElementId: 'img block'
+    parentElementId: 'img block',
+    counter: 0
   };
   public listImgDesktop = [
     'assets/images/first-screen/Desktop1.png',
@@ -168,24 +169,30 @@ export class FirstPageComponent implements OnInit {
 
   onPan(e) {
     const {prevElementId, currentElementId, nextElementEd, pxForSwipe} = this.animationConfig;
-    const x = Math.round(e.deltaX / window.innerWidth * 100) * -1;
-    if ( x >= 0) {
-      const current = document.getElementById(currentElementId);
-      const next = document.getElementById(nextElementEd);
-      current.style.transform = `translateX(-${x}%)`;
-      next.style.transform = `translateX(${100 - x}%)`;
-    } else {
-      const current = document.getElementById(currentElementId);
-      const next = document.getElementById(prevElementId);
-      current.style.transform = `translateX(${-x}%)`;
-      next.style.transform = `translateX(${-100 - x}%)`;
+    if (e['additionalEvent'] && e['additionalEvent'] !== 'pandown') {
+      this.animationConfig.counter++;
     }
-    if (e.isFinal) {
-      if (Math.abs(e.deltaX) > pxForSwipe) {
-        x > 0 ? this.nextImg(x) : this.prevImg(x);
+    if (this.animationConfig.counter > 3) {
+      const x = Math.round(e.deltaX / window.innerWidth * 100) * - 1;
+      if (x >= 0) {
+        const current = document.getElementById(currentElementId);
+        const next = document.getElementById(nextElementEd);
+        current.style.transform = `translateX(-${x}%)`;
+        next.style.transform = `translateX(${100 - x}%)`;
+      } else {
+        const current = document.getElementById(currentElementId);
+        const next = document.getElementById(prevElementId);
+        current.style.transform = `translateX(${-x}%)`;
+        next.style.transform = `translateX(${-100 - x}%)`;
       }
-      if (Math.abs(e.deltaX) < pxForSwipe) {
-        x > 0 ? this.backFromNext(x) : this.backFromPrev(x);
+      if (e.isFinal) {
+        if (Math.abs(e.deltaX) > pxForSwipe) {
+          x > 0 ? this.nextImg(x) : this.prevImg(x);
+        }
+        if (Math.abs(e.deltaX) < pxForSwipe) {
+          x > 0 ? this.backFromNext(x) : this.backFromPrev(x);
+        }
+        this.animationConfig.counter = 0;
       }
     }
   }

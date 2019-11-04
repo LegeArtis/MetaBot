@@ -22,17 +22,13 @@ import { ContactsComponent } from './components/contacts/contacts.component';
 import { MobileMenuComponent } from './components/mobile-menu/mobile-menu.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import { SecretPageComponent } from './pages/secret-page/secret-page.component';
-import { AddDataComponent } from './components/add-data/add-data.component';
-import { EditListComponent } from './components/edit-list/edit-list.component';
 import * as Hammer from 'hammerjs';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { DemoBotComponent } from './components/demo-bot/demo-bot.component';
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any> {
-    swipe: { direction: Hammer.DIRECTION_ALL },
-    pan: { direction: Hammer.DIRECTION_ALL },
+    pan: { direction: Hammer.DIRECTION_HORIZONTAL },
   };
 
   options = {
@@ -61,9 +57,6 @@ export class MyHammerConfig extends HammerGestureConfig {
     TrustUsComponent,
     ContactsComponent,
     MobileMenuComponent,
-    SecretPageComponent,
-    AddDataComponent,
-    EditListComponent,
     DemoBotComponent
   ],
   imports: [

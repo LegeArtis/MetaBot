@@ -1,49 +1,41 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {DataService} from '../../services/data.service';
+import {Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-client-think',
   templateUrl: './client-think.component.html',
   styleUrls: ['./client-think.component.css']
 })
-export class ClientThinkComponent implements OnInit {
+export class ClientThinkComponent {
   public animationConfig = {
     animationSpeed: 5,
     pxForSwipe: 50,
     currentElementId: 'currentClient',
     prevElementId: 'prevClient',
     nextElementEd: 'nextClient',
-    parentElementId: 'img_block_client'
+    parentElementId: 'img_block_client',
+    counter: 0
   };
-  public commitArray = [
-    {
-      comment: 'comment0',
-      url: 'assets/images/trust-us/Alfa-Bank%201.png',
-      name: 'name0',
-      position: 'position0'
-    },
-    {
-      comment: 'comment1',
-      url: 'assets/images/trust-us/icon_CXI.png',
-      name: 'name1',
-      position: 'position1'
-    },
-    {
-      comment: 'comment2',
-      url: 'assets/images/trust-us/icon_min.png',
-      name: 'name2',
-      position: 'position2'
-    },
-    {
-      comment: 'comment3',
-      url: 'assets/images/trust-us/icon_umico.png',
-      name: 'name3',
-      position: 'position3'
-    },
-  ];
-
   @Output() openCallbackForm = new EventEmitter<boolean>();
   public current = 0;
+  public commitArray = [
+    {
+      "_id":"5db474ec24c9680d3c78c65d",
+      "name":"Лия",
+      "position":"SkyMap , Звездные карты",
+      "comment":"\"У нас в день очень много переписок — более 100 чатов с клиентами. Мне очень хотелось автоматизировать этот процесс, чтобы упростить жизнь менеджерам по продажам. Чтобы они могли сконцентрироваться на ведении клиента, а не на ответах на одни и те же вопросы. Очень удобно, что бот может отправлять фото, ссылки на посты. Если возникают дополнительные вопросы, то подключается менеджер. Я очень довольна!\"\n",
+      "url":'assets/img/1572107500396-Фото мини.png',
+      "__v":0
+    }, {
+      "_id":"5db4756f24c9680d3c78c65e",
+      "name":"Николай Мрочковский",
+      "position":"Финанс консалтинг",
+      "comment":"“Я хотел использовать бот для того, чтобы коммуницировать с аудиторией через Telegram. Понятно, что сейчас люди все больше смещаются в мессенджеры, поэтому стояла задача начать общение с ними в полуавтоматическом режиме через бота. В результате мы совместно с Metabot реализовали проект, что дало существенный эффект. На данный момент на меня подписалось больше 5000 человек. Это дало хороший рывок вперед в плане методов взаимодействия с аудиторией. Спасибо за помощь в реализации моих идей, оперативной корректировке бота и, конечно, за плодотворное сотрудничество! Если вы хотите настроить своего чат-бота, обращайтесь в Metabot!\"\n",
+      "url":"assets/img/mask.jpg",
+      "__v":0
+    }
+  ];
+
+
 
   nextCurrent() {
     return this.commitArray.length - 1 > this.current ? this.current + 1 : 0;
@@ -88,13 +80,22 @@ export class ClientThinkComponent implements OnInit {
         newImg.style.height = '200px';
         newImg.style.width = '200px';
         newImg.style.borderRadius = '100px';
+        newImg.style.position = 'relative';
+        if (window.innerWidth < 460) {
+          newImg.style.left = '50%';
+          newImg.style.transform = 'translateX(-50%)';
+        }
+
 
         const newDiv = document.createElement('div');
-        newDiv.setAttribute('class', 'think_block_text');
         newDiv.style.minWidth = '250px';
         newDiv.style.maxWidth = '750px';
         newDiv.style.width = '100%';
-        newDiv.style.marginLeft = '20px';
+
+        if (window.innerWidth > 460) {
+          newImg.style.cssFloat = 'left';
+          newDiv.style.cssFloat = 'right';
+        }
 
         const pComment = document.createElement('p');
         pComment.innerText = this.commitArray[this.nextCurrent()].comment;
@@ -160,13 +161,21 @@ export class ClientThinkComponent implements OnInit {
         newImg.style.height = '200px';
         newImg.style.width = '200px';
         newImg.style.borderRadius = '100px';
+        newImg.style.position = 'relative';
+        if (window.innerWidth < 460) {
+          newImg.style.left = '50%';
+          newImg.style.transform = 'translateX(-50%)';
+        }
 
         const newDiv = document.createElement('div');
-        newDiv.setAttribute('class', 'think_block_text');
         newDiv.style.minWidth = '250px';
         newDiv.style.maxWidth = '750px';
         newDiv.style.width = '100%';
-        newDiv.style.marginLeft = '20px';
+
+        if (window.innerWidth > 460) {
+          newImg.style.cssFloat = 'left';
+          newDiv.style.cssFloat = 'right';
+        }
 
         const pComment = document.createElement('p');
         pComment.innerText = this.commitArray[this.nextCurrent()].comment;
@@ -174,6 +183,7 @@ export class ClientThinkComponent implements OnInit {
         pComment.style.lineHeight = '28px';
         pComment.style.fontWeight = '200';
         pComment.style.marginBottom = '30px';
+        pComment.style.width = '100%';
 
         const pName = document.createElement('p');
         pName.innerText = this.commitArray[this.nextCurrent()].name;
@@ -199,24 +209,30 @@ export class ClientThinkComponent implements OnInit {
 
   onPan(e) {
     const {prevElementId, currentElementId, nextElementEd, pxForSwipe} = this.animationConfig;
-    const x = Math.round(e.deltaX / window.innerWidth * 100) * -1;
-    if ( x >= 0) {
-      const current = document.getElementById(currentElementId);
-      const next = document.getElementById(nextElementEd);
-      current.style.transform = `translateX(-${x}%)`;
-      next.style.transform = `translateX(${100 - x}%)`;
-    } else {
-      const current = document.getElementById(currentElementId);
-      const next = document.getElementById(prevElementId);
-      current.style.transform = `translateX(${-x}%)`;
-      next.style.transform = `translateX(${-100 - x}%)`;
+    if (e['additionalEvent'] && e['additionalEvent'] !== 'pandown' && e['additionalEvent'] !== 'panup') {
+      this.animationConfig.counter++;
     }
-    if (e.isFinal) {
-      if (Math.abs(e.deltaX) > pxForSwipe) {
-        x > 0 ? this.nextImg(x) : this.prevImg(x);
+    if (this.animationConfig.counter > 3) {
+      const x = Math.round(e.deltaX / window.innerWidth * 100) * - 1;
+      if (x >= 0) {
+        const current = document.getElementById(currentElementId);
+        const next = document.getElementById(nextElementEd);
+        current.style.transform = `translateX(-${x}%)`;
+        next.style.transform = `translateX(${100 - x}%)`;
+      } else {
+        const current = document.getElementById(currentElementId);
+        const next = document.getElementById(prevElementId);
+        current.style.transform = `translateX(${-x}%)`;
+        next.style.transform = `translateX(${-100 - x}%)`;
       }
-      if (Math.abs(e.deltaX) < pxForSwipe) {
-        x > 0 ? this.backFromNext(x) : this.backFromPrev(x);
+      if (e.isFinal) {
+        if (Math.abs(e.deltaX) > pxForSwipe) {
+          x > 0 ? this.nextImg(x) : this.prevImg(x);
+        }
+        if (Math.abs(e.deltaX) < pxForSwipe) {
+          x > 0 ? this.backFromNext(x) : this.backFromPrev(x);
+        }
+        this.animationConfig.counter = 0;
       }
     }
   }
@@ -249,51 +265,7 @@ export class ClientThinkComponent implements OnInit {
     }, animationSpeed);
   }
 
-
-  constructor(private service: DataService) { }
-
-  ngOnInit() {
-    // this.service.get('Отзывы').subscribe(
-    //   value => {
-    //     this.commitArray = value;
-    //     // this.changeTo(0);
-    //   }
-    // );
-  }
-
   openCallback() {
     this.openCallbackForm.emit();
   }
-
-  // onSwipe(e) {
-  //   const x = Math.abs(e.deltaX) > 40 ? (e.deltaX > 0 ? this.prevComment() : this.nextComment()) : '';
-  // }
-  //
-  // nextComment() {
-  //   this.change = false;
-  //   if (this.current < this.commitArray.length - 1) {
-  //     this.changeTo(++this.current);
-  //   } else {
-  //     this.current = 0;
-  //     this.changeTo(this.current);
-  //   }
-  // }
-  //
-  // prevComment() {
-  //   this.change = false;
-  //   if (this.current === 0) {
-  //     this.current = this.commitArray.length - 1;
-  //     this.changeTo(this.current);
-  //   } else {
-  //     this.changeTo(--this.current);
-  //   }
-  // }
-  //
-  // changeTo(index) {
-  //   this.text = this.commitArray[index].comment;
-  //   this.subs = this.commitArray[index].position;
-  //   this.imgSrc = this.commitArray[index].url;
-  //   this.name = this.commitArray[index].name;
-  // }
-
 }

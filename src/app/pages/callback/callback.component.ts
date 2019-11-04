@@ -17,12 +17,19 @@ export class CallbackComponent implements OnInit, OnDestroy {
     document.body.style.overflow = 'hidden';
     this.callback = this.formBuilder.group({
       name: ['', Validators.required],
-      phone: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      phone: [''],
+      email: ['', [Validators.email]],
       message: ['', Validators.required],
-    });
+    },
+      { validators: this.checkEmailOrPhone});
   }
 
+  checkEmailOrPhone(group: FormGroup) {
+    const phone = group.get('phone').value;
+    const email = group.get('email').value;
+
+    return phone || email ? null : { invalid: true };
+  }
   ngOnDestroy(): void {
     document.body.style.overflow = 'auto';
   }
@@ -50,6 +57,7 @@ export class CallbackComponent implements OnInit, OnDestroy {
       phone: this.check.phone.value,
       message: this.check.message.value
     };
+
     this.service.sendMail(body).subscribe(value => {
         if (value['msg']) {
           this.isSend = true;

@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8888/'
+//  apiUrl: 'http://localhost:8888/api'
+  apiUrl: 'http://metabotlanding.dev.com:8888/api'
 };
 
 /*

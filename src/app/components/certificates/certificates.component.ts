@@ -6,8 +6,15 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./certificates.component.css']
 })
 export class CertificatesComponent implements OnInit {
-  public animationSpeed = 5;
-  public pxForSwipe = 50;
+  public animationConfig = {
+    animationSpeed: 5,
+    pxForSwipe: 50,
+    currentElementId: 'currentCert',
+    prevElementId: 'prevCert',
+    nextElementEd: 'nextCert',
+    parentElementId: 'img_block_cert',
+    counter: 0
+  };
   public listOfCertificates = [
     'assets/images/certificates/doc1.jpg',
     'assets/images/certificates/doc2.jpg',
@@ -30,20 +37,21 @@ export class CertificatesComponent implements OnInit {
   }
 
   nextImg(x) {
+    const { currentElementId, nextElementEd, prevElementId, parentElementId, animationSpeed} = this.animationConfig;
     const int = setInterval(() => {
-      const current = document.getElementById('currentCert');
-      const next = document.getElementById('nextCert');
+      const current = document.getElementById(currentElementId);
+      const next = document.getElementById(nextElementEd);
       current.style.transform = `translateX(-${x}%)`;
       next.style.transform = `translateX(${100 - x}%)`;
       if (x >= 100) {
         clearInterval(int);
         next.style.position = 'relative';
         current.remove();
-        next.id = 'currentCert';
+        next.id = currentElementId;
         this.current = this.nextCurrent();
-        document.getElementById('prevCert').setAttribute('src', this.listOfCertificates[this.prevCurrent()]);
+        document.getElementById(prevElementId).setAttribute('src', this.listOfCertificates[this.prevCurrent()]);
         const newNext = document.createElement('img');
-        newNext.id = 'nextCert';
+        newNext.id = nextElementEd;
         newNext.src = this.listOfCertificates[this.nextCurrent()];
         newNext.alt = 'Tablet_img';
         newNext.style.transform = 'translateX(100%)';
@@ -52,27 +60,28 @@ export class CertificatesComponent implements OnInit {
         newNext.style.left = '0';
         newNext.style.width = '100%';
         newNext.addEventListener('click', () => this.zoomIn(this.listOfCertificates[this.current]));
-        document.getElementById('img_block_cert').appendChild(newNext);
+        document.getElementById(parentElementId).appendChild(newNext);
       }
       x += 1;
-    }, this.animationSpeed);
+    }, animationSpeed);
   }
 
   prevImg(x) {
+    const { currentElementId, nextElementEd, prevElementId, parentElementId, animationSpeed} = this.animationConfig;
     const int = setInterval(() => {
-      const current = document.getElementById('currentCert');
-      const prev = document.getElementById('prevCert');
+      const current = document.getElementById(currentElementId);
+      const prev = document.getElementById(prevElementId);
       current.style.transform = `translateX(${-x}%)`;
       prev.style.transform = `translateX(${-100 - x}%)`;
       if (x <= -100) {
         clearInterval(int);
         prev.style.position = 'relative';
         current.remove();
-        prev.id = 'currentCert';
+        prev.id = currentElementId;
         this.current = this.prevCurrent();
-        document.getElementById('nextCert').setAttribute('src', this.listOfCertificates[this.nextCurrent()]);
+        document.getElementById(nextElementEd).setAttribute('src', this.listOfCertificates[this.nextCurrent()]);
         const newPrev = document.createElement('img');
-        newPrev.id = 'prevCert';
+        newPrev.id = prevElementId;
         newPrev.src = this.listOfCertificates[this.prevCurrent()];
         newPrev.alt = 'Tablet_img';
         newPrev.style.transform = 'translateX(-100%)';
@@ -81,59 +90,68 @@ export class CertificatesComponent implements OnInit {
         newPrev.style.left = '0';
         newPrev.style.width = '100%';
         newPrev.addEventListener('click', () => this.zoomIn(this.listOfCertificates[this.current]));
-        document.getElementById('img_block_cert').appendChild(newPrev);
+        document.getElementById(parentElementId).appendChild(newPrev);
       }
       x -= 1;
-    }, this.animationSpeed);
+    }, animationSpeed);
   }
 
   onPan(e) {
-    const x = Math.round(e.deltaX / window.innerWidth * 100) * -1;
-    if ( x >= 0) {
-      const current = document.getElementById('currentCert');
-      const next = document.getElementById('nextCert');
-      current.style.transform = `translateX(-${x}%)`;
-      next.style.transform = `translateX(${100 - x}%)`;
-    } else {
-      const current = document.getElementById('currentCert');
-      const next = document.getElementById('prevCert');
-      current.style.transform = `translateX(${-x}%)`;
-      next.style.transform = `translateX(${-100 - x}%)`;
+    const {prevElementId, currentElementId, nextElementEd, pxForSwipe} = this.animationConfig;
+    if (e['additionalEvent'] && e['additionalEvent'] !== 'pandown' && e['additionalEvent'] !== 'panup') {
+      this.animationConfig.counter++;
     }
-    if (e.isFinal) {
-      if (Math.abs(e.deltaX) > this.pxForSwipe) {
-        x > 0 ? this.nextImg(x) : this.prevImg(x);
+    if (this.animationConfig.counter > 3) {
+      const x = Math.round(e.deltaX / window.innerWidth * 100) * - 1;
+      if (x >= 0) {
+        const current = document.getElementById(currentElementId);
+        const next = document.getElementById(nextElementEd);
+        current.style.transform = `translateX(-${x}%)`;
+        next.style.transform = `translateX(${100 - x}%)`;
+      } else {
+        const current = document.getElementById(currentElementId);
+        const next = document.getElementById(prevElementId);
+        current.style.transform = `translateX(${-x}%)`;
+        next.style.transform = `translateX(${-100 - x}%)`;
       }
-      if (Math.abs(e.deltaX) < this.pxForSwipe) {
-        x > 0 ? this.backFromNext(x) : this.backFromPrev(x);
+      if (e.isFinal) {
+        if (Math.abs(e.deltaX) > pxForSwipe) {
+          x > 0 ? this.nextImg(x) : this.prevImg(x);
+        }
+        if (Math.abs(e.deltaX) < pxForSwipe) {
+          x > 0 ? this.backFromNext(x) : this.backFromPrev(x);
+        }
+        this.animationConfig.counter = 0;
       }
     }
   }
 
   backFromNext(x) {
+    const { currentElementId, nextElementEd, animationSpeed} = this.animationConfig;
     const int = setInterval(() => {
-      const current = document.getElementById('currentCert');
-      const next = document.getElementById('nextCert');
+      const current = document.getElementById(currentElementId);
+      const next = document.getElementById(nextElementEd);
       current.style.transform = `translateX(${-x}%)`;
       next.style.transform = `translateX(${100 - x}%)`;
       if (x <= 0) {
         clearInterval(int);
       }
       x -= 1;
-    }, this.animationSpeed);
+    }, animationSpeed);
   }
 
   backFromPrev(x) {
+    const { currentElementId, prevElementId, animationSpeed} = this.animationConfig;
     const int = setInterval(() => {
-      const current = document.getElementById('currentCert');
-      const prev = document.getElementById('prevCert');
+      const current = document.getElementById(currentElementId);
+      const prev = document.getElementById(prevElementId);
       current.style.transform = `translateX(${-x}%)`;
       prev.style.transform = `translateX(${-100 - x}%)`;
       if (x >= 0) {
         clearInterval(int);
       }
       x += 1;
-    }, this.animationSpeed);
+    }, animationSpeed);
   }
 
   zoomIn(url) {

@@ -9,8 +9,8 @@
     <p class="error_msg" *ngIf="submitted && check.name.errors">Заполните имя</p>
     <input class="form_block_input form_block_input_input" type="text" placeholder="Ваш E-mail" formControlName="email">
     <p class="error_msg" *ngIf="submitted && check.email.errors">Введите корректный email</p>
+    <p class="error_msg" *ngIf="submitted && callback.errors && callback.errors.invalid">Укажите телефон или email. </p>
     <input class="form_block_input form_block_input_input" type="text" placeholder="Номер телефона" name="phone" formControlName="phone">
-    <p class="error_msg" *ngIf="submitted && check.phone.errors">Укажите ваш телефон </p>
     <textarea rows="4" class="form_block_input form_block_input_text_area" placeholder="Сообщение" name="message" formControlName="message"></textarea>
     <p class="error_msg" *ngIf="submitted && check.message.errors">Введите ваше сообщение</p>
     <button class="form_block_input form_block_input_button" type="submit">ЗАКАЗАТЬ ЧАТ-БОТ</button>
